@@ -1,0 +1,26 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: Api-Gateway
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          - id: Student-Service
+            uri: lb://Student-Service
+            predicates:
+              - Path=/student/**
+          - id: School-Service
+            uri: lb://School-Service
+            predicates:
+              - Path=/school/**
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8282/eureka
+  instance:
+    hostname: localhost

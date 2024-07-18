@@ -1,0 +1,17 @@
+server:
+  port: 8092
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/student_service
+  application:
+    name: Student-Service
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8282/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    hostname: localhost
